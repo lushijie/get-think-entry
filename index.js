@@ -88,4 +88,6 @@ module.exports = function(entryConfig, {
       }
     }
   });
+
+  return [resEntry, formatEntry];
 }
