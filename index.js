@@ -6,6 +6,7 @@ module.exports = [
     'demo/meta/index1': {
       template: 'template.html',
       entry: 'demo/meta/index1.jsx',
+      params: {}
     },
   },
 
@@ -39,6 +40,7 @@ module.exports = function(entryConfig, {
         [ele]: {
           template: defaultTemplate,
           entry: `${ele}.jsx`,
+          params: {}
         }
       }
     } else if (Object.prototype.toString.call(ele) === '[object Object]') {
@@ -48,6 +50,7 @@ module.exports = function(entryConfig, {
           [pairs[0]]: {
             template: defaultTemplate,
             entry: pairs[1],
+            params: {}
           }
         }
       } else if (Object.prototype.toString.call(pairs[1]) === '[object Object]') { // style1, style2
@@ -55,6 +58,7 @@ module.exports = function(entryConfig, {
           [pairs[0]]: {
             template:  pairs[1]['template'] || defaultTemplate,
             entry: pairs[1]['entry'],
+            params: pairs[1]['params'] || {},
           }
         }
       }
@@ -85,6 +89,7 @@ module.exports = function(entryConfig, {
       [key]: {
         template: absoluteTemplate,
         entry: absoulteEntry,
+        params: pairs[1].params,
       }
     }
   });
